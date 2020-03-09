@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Symbol</title>
+</head>
+<body>
+  <script>
+    // Symbol 的唯一性
+
+    // let s1 = Symbol('foo')
+    // let s2 = Symbol('foo')
+    // let s1 = Symbol()
+    // let s2 = Symbol()
+    // console.log(s1 ===s2)
+
+    // symbol 作为属性
+    let mySymbol = Symbol()
+    let a = {}
+    // a[mySymbol] = 'hello'
+    Object.defineProperty(a, mySymbol,{value: 'helllo'})
+    // console.log(a)
+
+    // 实现私有属性
+    // 第一种方式
+    function P0 (name) {
+      let _name = '_name'
+      this[_name] = name
+    }
+    P0.prototype.getName = function () {
+      return this[_name]
+    }
+    // 第二种方式： 使用闭包
+    function P1 (name) {
+      this.getName = function () {
+        return name
+      }
+    }
+    // 第三种方式： 使用 Symbol
+    function P2 (name) {
+      const nameSymbol = Symbol('name')
+      this[nameSymbol] = name
+    }
+
+
+
+
+  </script>
+</body>
+</html>
