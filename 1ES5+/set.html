@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Set</title>
+</head>
+<body>
+  <script>
+    let a = new Set()
+
+    // add 方法若传入多个以逗号分隔的数字，则只存储第一个
+    a.add(1,2,3,4,5,6)
+    // console.log(a.size === 1)
+
+    // 遍历方法
+    let b = new Set()
+    b.add(1)
+    b.add(2)
+    b.add(3)
+    // 键名遍历器
+    let c = b.keys()
+    // console.log(c)
+    // 键值遍历器
+    let d = b.values()
+    // console.log(d)
+    // 键值对遍历器
+    let e = b.entries()
+    // console.log(e)
+    for(item of e) {
+      console.log(item)
+    }
+    // WeakSet 是弱引用 没有被引用的元素（对象）随时可能会被回收
+  </script>
+</body>
+</html>

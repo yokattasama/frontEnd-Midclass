@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map</title>
+</head>
+<body>
+  <script>
+    let a = new Map([
+      [null, 12],
+      ['name', 'zs']
+    ])
+    // 添加元素方法接受两个值，不是一个数组
+    a.set('age', 15)
+    console.log(a.get('name'))
+    console.log(a.get(null))
+    console.log(a.has('age'))
+    // console.log(a.delete('name'))
+    // a.clear()
+  </script>
+</body>
+</html>
