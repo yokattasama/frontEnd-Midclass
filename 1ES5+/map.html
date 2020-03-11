@@ -18,6 +18,15 @@
     console.log(a.has('age'))
     // console.log(a.delete('name'))
     // a.clear()
+    class Chicken {}
+    let chickenList = []
+    for(let i = 1; i < 100; i++) {
+      chickenList.push(new Chicken())
+    }
+    let noteBook = new Map()
+    chickenList.forEach((item, index) => {
+      noteBook.set(item, Math.random())
+    })
   </script>
 </body>
 </html>
