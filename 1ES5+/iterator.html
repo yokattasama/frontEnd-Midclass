@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>遍历器</title>
+</head>
+<body>
+  <script>
+    let it = makeIterator()
+    function makeIterator () {
+      let index = 0
+      return {
+        next: function () {
+          return index < 5 ? { value: index++, done: false}: { value: undefined, done: true }
+        }
+      }
+    }
+
+  </script>
+</body>
+</html>
