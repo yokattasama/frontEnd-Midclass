@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object.defineproperty</title>
+</head>
+<body>
+  <script>
+    let obj = {
+      name:'zs'
+    }
+    let initValue = 20
+    Object.defineProperty(obj,'age',{
+      // 当设置有 get set 函数时不能同时有 value writable
+      // value: 28,
+      // writable: true,
+      enumerable: false,
+      configurable: false,
+      get: function () {
+        console.log('取到了属性值')
+        return initValue
+      },
+      set: function (value) {
+        console.log('正在设置属性值')
+        initValue = value
+      }
+    })
+    for( let objkeys in obj ) {
+      console.log(objkeys)
+    }
+  </script>
+</body>
+</html>
