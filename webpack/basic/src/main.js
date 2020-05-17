@@ -1,0 +1,5 @@
+let a = require('./a.js')
+console.log(a)
+console.log('1243242342')
+console.log('牛逼')
+// window.alert('牛逼啊兄弟')
