@@ -1,4 +1,9 @@
 let a = require('./a.js')
+
+import './css/a.css'
+import './css/b.css'
+import './less/index.less'
+import './scss/index.scss'
 console.log(a)
 console.log('1243242342')
 console.log('牛逼')

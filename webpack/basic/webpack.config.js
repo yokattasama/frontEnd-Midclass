@@ -21,7 +21,17 @@ module.exports = {
       filename: 'index.html',
       template: './src/index.html'
     })
-  ]
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader','css-loader']
+      },
+      { test: /\.less$/, use: ['style-loader','css-loader','less-loader']},
+      { test: /\.s(a|c)ss$/, use: ['style-loader','css-loader','sass-loader']}
+    ]
+  }
 }
 // 不适用参数，可以在 config.js 中的 devServer 进行配置
 // package.json 中配置， json 文件不能写注释，所以写到这儿
