@@ -29,7 +29,16 @@ module.exports = {
         use: ['style-loader','css-loader']
       },
       { test: /\.less$/, use: ['style-loader','css-loader','less-loader']},
-      { test: /\.s(a|c)ss$/, use: ['style-loader','css-loader','sass-loader']}
+      { test: /\.s(a|c)ss$/, use: ['style-loader','css-loader','sass-loader']},
+      { test: /\.(jpg|jpeg|png|bmp|gif)$/, use: {
+        loader: 'url-loader',
+        options: {
+          limit: 5*1024,
+          outputPath: 'images',
+          name: '[name]_[hash:6].[ext]'
+        }
+      }},
+      { test: /\.(eot|woff|woff2|ttf|svg|otf)$/, use: 'file-loader'},
     ]
   }
 }
