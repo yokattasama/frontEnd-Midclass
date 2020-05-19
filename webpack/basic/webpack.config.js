@@ -38,7 +38,27 @@ module.exports = {
           name: '[name]_[hash:6].[ext]'
         }
       }},
-      { test: /\.(eot|woff|woff2|ttf|svg|otf)$/, use: 'file-loader'},
+      { test: /\.(eot|woff|woff2|ttf|svg|otf)$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[name]_[hash:4].[ext]',
+            outputPath: 'font'
+          }
+      }},
+      {
+        test: /\.js$/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/env'],
+            plugins: [
+              '@babel/plugin-transform-runtime'
+            ],
+            exclude: /node_modules/
+          }
+        }
+      }
     ]
   }
 }
