@@ -2,6 +2,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const webpack = require('webpack')
 module.exports = {
   entry: ['@babel/polyfill', './src/main.js'],
   output: {
@@ -24,12 +25,19 @@ module.exports = {
       template: './src/index.html'
     }),
     new CleanWebpackPlugin(),
-    new CopyWebpackPlugin([
-      {
-        from: path.resolve(__dirname, 'assets'),
-        to: 'assets',
-      }
-    ], {copyUnmodified: true})
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.join(__dirname, '/assets'),
+          to: 'assets',
+        },
+        {
+          from: path.join(__dirname, '/static'),
+          to: 'static',
+        },
+      ]
+    }),
+    new webpack.BannerPlugin('版权所有，复制必究'),
   ],
   module: {
     rules: [
