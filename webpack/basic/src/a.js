@@ -11,11 +11,15 @@ function *fun () {
   yield 2
   return 3
 }
-let testfun = fun()
-console.log(testfun.next())
-console.log(testfun.next())
-console.log(testfun.next())
-console.log(testfun.next())
+// let testfun = fun()
+// console.log(testfun.next())
+// console.log(testfun.next())
+// console.log(testfun.next())
+// console.log(testfun.next())
+
+let str = '124351515'
+console.log(str.includes('2'))
+
 export default {
   name: '张三'
 }
