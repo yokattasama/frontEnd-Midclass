@@ -4,12 +4,15 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const webpack = require('webpack')
 module.exports = {
-  entry: ['@babel/polyfill', './src/main.js'],
+  entry: {
+    index: ['@babel/polyfill', './src/main.js'],
+    other: ['@babel/polyfill', './src/other.js']
+  },
   output: {
     // path.resolve 将相对路径 或者 绝对路径 解析为绝对路径
     // path: path.resolve('./dist/'),
     path: path.join(__dirname,'./dist/'),
-    filename: 'bundle.js'
+    filename: '[name].js'
   },
   mode: 'development',
   devServer: {
@@ -22,7 +25,13 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: './src/index.html'
+      template: './src/index.html',
+      chunks: ['main']
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'other.html',
+      template: './src/other.html',
+      chunks: ['other']
     }),
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
