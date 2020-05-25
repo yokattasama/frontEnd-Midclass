@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 console.log('我是 a 模块')
 // alert('hahah')
 window.setTimeout(function () {
@@ -19,6 +21,9 @@ function *fun () {
 
 let str = '124351515'
 console.log(str.includes('2'))
+
+console.log($)
+console.log(window.$);
 
 export default {
   name: '张三'

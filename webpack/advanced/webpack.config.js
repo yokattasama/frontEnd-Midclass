@@ -26,7 +26,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: './src/index.html',
-      chunks: ['main']
+      chunks: ['index']
     }),
     new HtmlWebpackPlugin({
       filename: 'other.html',
@@ -47,6 +47,10 @@ module.exports = {
       ]
     }),
     new webpack.BannerPlugin('版权所有，复制必究'),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+    })
   ],
   module: {
     rules: [
@@ -90,6 +94,13 @@ module.exports = {
         test: /\.(htm|html)$/,
         loader: 'html-withimg-loader'
       },
+      // {
+      //   test: require.resolve('jquery'),
+      //   use: {
+      //     loader: 'expose-loader',
+      //     options: '$'
+      //   }
+      // }
     ]
   }
 }
