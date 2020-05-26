@@ -11,10 +11,9 @@ module.exports = {
   output: {
     // path.resolve 将相对路径 或者 绝对路径 解析为绝对路径
     // path: path.resolve('./dist/'),
-    path: path.join(__dirname,'./dist/'),
+    path: path.join(__dirname, '..', './dist/'),
     filename: '[name].js'
   },
-  mode: 'development',
   devServer: {
     open: true,
     port: 8080,
@@ -37,11 +36,11 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.join(__dirname, '/assets'),
+          from: path.join(__dirname, '..', '/assets'),
           to: 'assets',
         },
         {
-          from: path.join(__dirname, '/static'),
+          from: path.join(__dirname, '..', '/static'),
           to: 'static',
         },
       ]
