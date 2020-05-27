@@ -9,7 +9,15 @@ module.exports = merge(baseConfig, {
     port: 8080,
     contentBase: './src',
     hot: true,
-    compress: true
+    compress: true,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:9999',
+        pathRewrite: {
+          '^/api': '',
+        }
+      } 
+    }
   },
   devtool: 'cheap-eval-source-map'
 })
