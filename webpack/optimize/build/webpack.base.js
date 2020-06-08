@@ -5,17 +5,22 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const webpack = require('webpack')
 module.exports = {
-  entry: './src/main.js',
-  // {
-  //   // index: ['@babel/polyfill', './src/main.js'],
-  //   // other: ['@babel/polyfill', './src/other.js']
-  // },
+  entry:
+  {
+    index: ['@babel/polyfill', './src/main.js'],
+    other: ['@babel/polyfill', './src/other.js']
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    }
+  },
   output: {
     // path.resolve 将相对路径 或者 绝对路径 解析为绝对路径
     // path: path.resolve('./dist/'),
     path: path.join(__dirname, '..', './dist/'),
     filename: '[name].js',
-    publicPath: '/',
+    publicPath: '',
   },
   plugins: [
     new HtmlWebpackPlugin({
