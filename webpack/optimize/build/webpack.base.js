@@ -53,7 +53,8 @@ module.exports = {
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
-    })
+    }),
+    new webpack.IgnorePlugin(/\.\/locale/, /moment/)
   ],
   module: {
     rules: [

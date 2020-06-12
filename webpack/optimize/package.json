@@ -48,7 +48,8 @@
     "axios": "^0.19.2",
     "bootstrap": "^3.4.1",
     "html-withimg-loader": "^0.1.16",
-    "jquery": "^3.5.1"
+    "jquery": "^3.5.1",
+    "moment": "^2.26.0"
   },
   "browserslist": [
     "> 1%",
