@@ -1,15 +1,16 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+// const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const webpack = require('webpack')
+const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin')
 module.exports = {
-  entry:
-  {
-    index: ['@babel/polyfill', './src/main.js'],
-    other: ['@babel/polyfill', './src/other.js']
-  },
+  entry: './src/main.js',
+  // {
+  //   index: ['@babel/polyfill', './src/main.js'],
+  //   other: ['@babel/polyfill', './src/other.js']
+  // },
   optimization: {
     splitChunks: {
       chunks: 'all',
@@ -28,12 +29,15 @@ module.exports = {
       template: './src/index.html',
       // chunks: ['index']
     }),
+    new AddAssetHtmlPlugin({
+      filepath: path.resolve(__dirname, '../dist/vue_dll.js')
+    }),
     // new HtmlWebpackPlugin({
     //   filename: 'other.html',
     //   template: './src/other.html',
     //   chunks: ['other']
     // }),
-    new CleanWebpackPlugin(),
+    // new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
       patterns: [
         {
@@ -46,7 +50,7 @@ module.exports = {
         },
       ]
     }),
-    new webpack.BannerPlugin('版权所有，复制必究'),
+    // new webpack.BannerPlugin('版权所有，复制必究'),
     new MiniCssExtractPlugin({
       filename: '[name].css',
     }),
@@ -54,7 +58,10 @@ module.exports = {
       $: 'jquery',
       jQuery: 'jquery',
     }),
-    new webpack.IgnorePlugin(/\.\/locale/, /moment/)
+    new webpack.IgnorePlugin(/\.\/locale$/, /moment$/),
+    new webpack.DllReferencePlugin({
+      manifest: path.resolve(__dirname, '../dist/manifest.json')
+    })
   ],
   module: {
     rules: [

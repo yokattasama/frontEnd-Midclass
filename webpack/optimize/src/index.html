@@ -4,8 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>打包测试</title>
+  <script src="vue_dll.js"></script>
 </head>
 <body>
+  <div id="app">
+    {{msg}}
+    <router-link to='/home'>去首页</router-link>
+    <router-link to='/news'>去新闻页面</router-link>
+    <router-view></router-view>
+  </div>
   <ul>
     <li>1</li>
     <li>2</li>
