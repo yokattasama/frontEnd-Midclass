@@ -3,6 +3,7 @@
 /webpack/advanced/node_modules/
 /webpack/server/node_modules/
 /webpack/optimize/node_modules/
+/typescript/flowcase/node_modules/
 /multi-platform/cordova/hello-world/node_modules/
 /multi-platform/ionic/hello-ionic/node_modules/
 /multi-platform/ionic/ionic-startup/node_modules/
